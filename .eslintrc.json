@@ -1,21 +1,15 @@
 {
-    "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint"],
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended"
-    ],
-    "rules": {
-        "@typescript-eslint/explicit-module-boundary-types": "off",
-        "eqeqeq": [2, "smart"],
-        "no-console": ["error", { "allow": ["warn", "error"] }]
-    },
-    "ignorePatterns": [
-        ".eslintrc.js",
-        "babel.config.js",
-        "prettier.config.js",
-        "razzle.config.js",
-        "src/client.js"
-    ]
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "eqeqeq": [2, "smart"]
+  },
+  "ignorePatterns": [".eslintrc.json", ".prettierrc", "src/client.js"]
 }
