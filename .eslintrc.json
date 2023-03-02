@@ -11,5 +11,5 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "eqeqeq": [2, "smart"]
   },
-  "ignorePatterns": [".eslintrc.json", ".prettierrc", "src/client.js"]
+  "ignorePatterns": [".eslintrc.json", ".prettierrc", "craco.config.js"]
 }

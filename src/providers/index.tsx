@@ -1,4 +1,5 @@
 import React from 'react'
+import RQueryClientProvider from 'rquery/provider'
 import ThemeProvider from 'theme/provider'
 
 type Props = {
@@ -6,7 +7,11 @@ type Props = {
 }
 
 const Providers: React.FC<Props> = ({ children }) => {
-  return <ThemeProvider>{children}</ThemeProvider>
+  return (
+    <RQueryClientProvider>
+      <ThemeProvider>{children}</ThemeProvider>
+    </RQueryClientProvider>
+  )
 }
 
 export default Providers
