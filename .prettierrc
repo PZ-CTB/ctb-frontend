@@ -1,23 +1,4 @@
 {
-  "importOrder": [
-    ",^providers$",
-    ",^providers(/(.*))?$",
-
-    ",^assets(/(.*))?$",
-    ",^components(/(.*))?$",
-    ",^layout(/(.*))?$",
-    ",^pages(/(.*))?$",
-    ",^router(/(.*))?$",
-    ",^routes(/(.*))?$",
-    ",^theme(/(.*))?$",
-    ",^utils(/(.*))?$",
-
-    ",^\\.\\./\\.\\./\\.\\.(/(.*))?$",
-    ",^\\.\\./\\.\\.(/(.*))?$",
-    ",^\\.\\.(/(.*))?$",
-    ",^\\.(/(.*))?$"
-  ],
-  "importOrderSeparation": true,
   "trailingComma": "es5",
   "tabWidth": 2,
   "semi": false,

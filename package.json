@@ -29,7 +29,8 @@
     "lint": "eslint src",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config .prettierrc",
-    "typescript": "tsc --project tsconfig.json --noEmit"
+    "typescript": "tsc --project tsconfig.json --noEmit",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
@@ -59,7 +60,6 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "@trivago/prettier-plugin-sort-imports": "^2.0.2",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.13",
     "@types/react": "^18.0.28",
