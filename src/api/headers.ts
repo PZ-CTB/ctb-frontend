@@ -1,5 +1,6 @@
-import { getPersistentAuthData } from 'auth/localStorage'
 import { AxiosRequestConfig } from 'axios'
+
+import { getPersistentAuthData } from 'auth/localStorage'
 
 export const getAxiosAuthorizationHeader =
   (): AxiosRequestConfig['headers'] => {

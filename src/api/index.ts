@@ -3,4 +3,4 @@ import create from './methods'
 
 const { get, post, put, patch, del, options } = create(axiosDefault)
 
-export { get, post, put, patch, del, options }
+export { del, get, options,patch, post, put }

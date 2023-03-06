@@ -1,5 +1,6 @@
-import { request as requestInterceptors } from './interceptors'
 import axios from 'axios'
+
+import { request as requestInterceptors } from './interceptors'
 
 // default instance with auth
 

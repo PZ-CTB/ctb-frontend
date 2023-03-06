@@ -1,12 +1,14 @@
-import defaultThemeOptions from './defaults'
-import GlobalStyles from './global'
 import {
   createTheme,
+  CssBaseline,
   Theme,
   ThemeProvider as MuiThemeProvider,
 } from '@mui/material'
-import { CssBaseline } from '@mui/material'
 import React from 'react'
+
+
+import defaultThemeOptions from './defaults'
+import GlobalStyles from './global'
 
 type Props = {
   children: React.ReactNode

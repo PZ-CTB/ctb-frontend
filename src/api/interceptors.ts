@@ -1,6 +1,7 @@
-import { getAxiosAuthorizationHeader } from './headers'
 import { AxiosInstance } from 'axios'
 import produce from 'immer'
+
+import { getAxiosAuthorizationHeader } from './headers'
 
 // request
 

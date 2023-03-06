@@ -1,6 +1,7 @@
-import { ApiGetter } from 'api/methods'
 import { AxiosRequestConfig } from 'axios'
 import { useQuery, UseQueryOptions } from 'react-query'
+
+import { ApiGetter } from 'api/methods'
 
 // for singles
 
