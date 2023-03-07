@@ -83,4 +83,3 @@ whoami
 # for yourgroup
 
 id -g -n <yourname>
-
