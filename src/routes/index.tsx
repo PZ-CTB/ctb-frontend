@@ -1,3 +1,3 @@
 export const Routes = {
-  BaseUrl: () => '/',
+  SandboxUrl: (user: string) => `/sandbox/${user}`,
 }

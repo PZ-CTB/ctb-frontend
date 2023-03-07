@@ -12,7 +12,7 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "eqeqeq": [2, "smart"],
-    "no-console": ["error"],
+    "no-console": ["warn"],
     "import/no-unresolved": "error",
     "import/order": [
       "error",
