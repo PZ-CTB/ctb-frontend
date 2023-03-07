@@ -49,36 +49,36 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## configure git locally (do this once):
 
+`
 git config --local user.name "example_name"
 git config --local user.email "example@email.com"
+`
 
 <!-- ## build the image -->
 <!-- docker build -t react-development . -->
 
 ## run the container
 
-docker-compose up
+`docker-compose up`
 
 ## enter container to git commit files
 
-docker exec -it react_development_container bash
+`docker exec -it react_development_container bash`
 
 ## correctly shutdown the container:
 
 ctrl+c
-docker-compose down
+`docker-compose down`
 
 ## in case of error when running git fetch or git pull: "error: insufficient permission for adding an object to repository database .git/objects" do following:
 
-cd .git/objects
-ls -al
-sudo chown -R yourname:yourgroup ./.git/objects/*
+`sudo chown -R yourname:yourgroup ./.git/objects/*`
 
-## you can tell yourname and yourgroup by
-## for yourname
+you can tell yourname and yourgroup by
+for yourname
 
-whoami
+`whoami`
 
-## for yourgroup
+for yourgroup
 
-id -g -n <yourname>
+`id -g -n <yourname>`
