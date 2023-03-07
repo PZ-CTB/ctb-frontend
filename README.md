@@ -72,7 +72,7 @@ docker-compose down
 
 cd .git/objects
 ls -al
-sudo chown -R yourname:yourgroup \*
+sudo chown -R yourname:yourgroup ./.git/objects/*
 
 # you can tell yourname and yourgroup by
 
@@ -83,4 +83,3 @@ whoami
 # for yourgroup
 
 id -g -n <yourname>
-
