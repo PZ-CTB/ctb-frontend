@@ -44,3 +44,43 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+### development inside docker container:
+
+## configure git locally (do this once):
+
+git config --local user.name "example_name"
+git config --local user.email "example@email.com"
+
+<!-- ## build the image -->
+<!-- docker build -t react-development . -->
+
+## run the container
+
+docker-compose up
+
+## enter container to git commit files
+
+docker exec -it react_development_container bash
+
+## correctly shutdown the container:
+
+ctrl+c
+docker-compose down
+
+## in case of error when running git fetch or git pull: "error: insufficient permission for adding an object to repository database .git/objects" do following:
+
+cd .git/objects
+ls -al
+sudo chown -R yourname:yourgroup \*
+
+# you can tell yourname and yourgroup by
+
+# for yourname
+
+whoami
+
+# for yourgroup
+
+id -g -n <yourname>
+
