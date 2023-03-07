@@ -31,7 +31,7 @@
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config .prettierrc",
     "typescript": "tsc --project tsconfig.json --noEmit",
-    "prepare": "node -e \"if (process.env.NODE_ENV !== 'production'){process.exit(1)} \" || husky install"
+    "postinstall": "husky install"
   },
   "husky": {
     "hooks": {
