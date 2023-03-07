@@ -1,5 +1,5 @@
 const BasePage = () => {
-  return <>Base page</>
+  return <>Base page test</>
 }
 
 export default BasePage
