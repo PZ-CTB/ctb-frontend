@@ -48,8 +48,10 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## configure git locally (do this once):
 
-`git config --local user.name "example_name"
-git config --local user.email "example@email.com"`
+`
+git config --local user.name "example_name"
+git config --local user.email "example@email.com"
+`
 
 <!-- ## build the image -->
 <!-- docker build -t react-development . -->
