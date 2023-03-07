@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    container_name: react_development_container
+    command: bash -c "./init_inside_docker.sh && npm run start"
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/code
