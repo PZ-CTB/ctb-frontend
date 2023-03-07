@@ -14,21 +14,24 @@
     "eqeqeq": [2, "smart"],
     "no-console": ["error"],
     "import/no-unresolved": "error",
-    "import/order": ["error", {
-      "groups": [
-        "builtin",
-        "external",
-        "internal",
-        "parent",
-        "sibling",
-        "index"
-      ],
-      "newlines-between": "always",
-      "alphabetize": {
-        "order": "asc",
-        "caseInsensitive": true
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
       }
-    }]
+    ]
   },
   "settings": {
     "import/resolver": {

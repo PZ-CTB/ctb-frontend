@@ -6,7 +6,6 @@ import {
 } from '@mui/material'
 import React from 'react'
 
-
 import defaultThemeOptions from './defaults'
 import GlobalStyles from './global'
 
