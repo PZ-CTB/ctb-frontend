@@ -74,12 +74,11 @@ cd .git/objects
 ls -al
 sudo chown -R yourname:yourgroup ./.git/objects/*
 
-# you can tell yourname and yourgroup by
-
-# for yourname
+## you can tell yourname and yourgroup by
+## for yourname
 
 whoami
 
-# for yourgroup
+## for yourgroup
 
 id -g -n <yourname>
