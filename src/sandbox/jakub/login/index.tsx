@@ -1,16 +1,19 @@
-import { yupResolver } from '@hookform/resolvers/yup/dist/yup'
-import { Button, TextField, TextFieldProps } from '@mui/material'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { Button } from '@mui/material'
 import React from 'react'
-import { Controller, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 import Form from 'components/form'
+import TextInput from 'components/textInput'
 
 import { LoginForm, LoginFormSchema } from './schema'
+import { getLoginFormDefaultValues } from './utils'
 
 const LoginPage: React.FC = () => {
   const methods = useForm<LoginForm>({
+    defaultValues: getLoginFormDefaultValues(),
     reValidateMode: 'onSubmit',
-    resolver: yupResolver(LoginFormSchema),
+    resolver: zodResolver(LoginFormSchema),
   })
 
   const { handleSubmit } = methods
@@ -23,31 +26,8 @@ const LoginPage: React.FC = () => {
   return (
     <Form methods={methods} onSubmit={onSubmit}>
       <TextInput name="email" label="Email" />
-      <Button>Submit</Button>
+      <Button type="submit">Submit</Button>
     </Form>
-  )
-}
-
-type Props = TextFieldProps & {
-  name: string
-  label: string
-}
-
-function TextInput(props: Props) {
-  const { name, label, ...textFieldProps } = props
-
-  return (
-    <Controller
-      name={name}
-      render={({ field: { onChange, value } }) => (
-        <TextField
-          onChange={onChange}
-          value={value}
-          label={label}
-          {...textFieldProps}
-        />
-      )}
-    />
   )
 }
 
