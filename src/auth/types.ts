@@ -1,3 +1,3 @@
 export type AuthData = {
-  token: string
-}
+  token: string;
+};

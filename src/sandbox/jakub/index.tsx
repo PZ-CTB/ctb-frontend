@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import LoginPage from './login'
+import LoginPage from './login';
 
 const JakubSandboxPage: React.FC = () => {
   return (
@@ -8,7 +8,7 @@ const JakubSandboxPage: React.FC = () => {
       <h1>Jakub Sandbox</h1>
       <LoginPage />
     </>
-  )
-}
+  );
+};
 
-export default JakubSandboxPage
+export default JakubSandboxPage;

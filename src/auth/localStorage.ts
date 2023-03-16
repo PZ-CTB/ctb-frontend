@@ -1,21 +1,21 @@
-import { AuthData } from './types'
+import { AuthData } from './types';
 
-const AUTH_TOKEN = 'ctb-auth-token'
+const AUTH_TOKEN = 'ctb-auth-token';
 
 export const setPersistentAuthData = (data: AuthData) => {
-  localStorage.setItem(AUTH_TOKEN, data.token)
-}
+  localStorage.setItem(AUTH_TOKEN, data.token);
+};
 
 export const getPersistentAuthData = (): AuthData | undefined => {
-  const token = localStorage.getItem(AUTH_TOKEN)
+  const token = localStorage.getItem(AUTH_TOKEN);
 
-  if (!token) return
+  if (!token) return;
 
   return {
     token,
-  }
-}
+  };
+};
 
 export const removePersistentAuthData = () => {
-  localStorage.removeItem(AUTH_TOKEN)
-}
+  localStorage.removeItem(AUTH_TOKEN);
+};

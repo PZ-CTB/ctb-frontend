@@ -1,4 +1,4 @@
-import { ThemeOptions } from '@mui/material'
+import { ThemeOptions } from '@mui/material';
 
 //
 
@@ -52,7 +52,7 @@ const defaultPalette = {
     dark: '#96182E',
     darker: '#640928',
   },
-}
+};
 
 //
 
@@ -60,6 +60,6 @@ const defaultThemeOptions: ThemeOptions = {
   palette: {
     ...defaultPalette,
   },
-}
+};
 
-export default defaultThemeOptions
+export default defaultThemeOptions;

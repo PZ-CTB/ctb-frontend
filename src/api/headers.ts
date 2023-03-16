@@ -1,14 +1,14 @@
-import { AxiosRequestConfig } from 'axios'
+import { AxiosRequestConfig } from 'axios';
 
-import { getPersistentAuthData } from 'auth/localStorage'
+import { getPersistentAuthData } from 'auth/localStorage';
 
 export const getAxiosAuthorizationHeader =
   (): AxiosRequestConfig['headers'] => {
-    const data = getPersistentAuthData()
+    const data = getPersistentAuthData();
 
-    if (!data) return undefined
+    if (!data) return undefined;
 
     return {
       Authorization: `Token ${data.token}`,
-    }
-  }
+    };
+  };

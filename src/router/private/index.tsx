@@ -1,18 +1,18 @@
-import React from 'react'
-import { Navigate } from 'react-router-dom'
+import React from 'react';
+import { Navigate } from 'react-router-dom';
 
-import { Routes } from 'routes'
+import Routes from 'routes';
 
 type Props = {
-  children: React.ReactElement
-}
+  children: React.ReactElement;
+};
 
 const ProtectedRoute: React.FC<Props> = ({ children }) => {
-  const isAuthenticated = false
+  const isAuthenticated = true;
 
-  if (isAuthenticated) return children
+  if (isAuthenticated) return children;
 
-  return <Navigate to={Routes.LoginUrl()} replace />
-}
+  return <Navigate to={Routes.LoginUrl()} replace />;
+};
 
-export default ProtectedRoute
+export default ProtectedRoute;

@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const MirekSandboxPage: React.FC = () => {
   return (
     <>
       <h1>Mirek Sandbox</h1>
     </>
-  )
-}
+  );
+};
 
-export default MirekSandboxPage
+export default MirekSandboxPage;
