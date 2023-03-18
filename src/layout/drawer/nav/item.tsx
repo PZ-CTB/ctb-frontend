@@ -10,14 +10,12 @@ import { ListItemProps } from './types'
 
 const LayoutDrawerNavItem: React.FC<ListItemProps> = ({ name, path, icon }) => {
   return (
-    <>
-      <ListItem key={name} disablePadding>
-        <ListItemButton key={name} component={StyledNavLink} to={path}>
-          <ListItemIcon>{icon}</ListItemIcon>
-          <ListItemText primary={name} />
-        </ListItemButton>
-      </ListItem>
-    </>
+    <ListItem disablePadding>
+      <ListItemButton component={StyledNavLink} to={path}>
+        <ListItemIcon>{icon}</ListItemIcon>
+        <ListItemText primary={name} />
+      </ListItemButton>
+    </ListItem>
   )
 }
 
