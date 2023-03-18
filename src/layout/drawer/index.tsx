@@ -4,7 +4,7 @@ import Button from '@mui/material/Button'
 import React from 'react'
 import styled from 'styled-components'
 
-import LogoImg from '../../assets/CTB_Text.png'
+import LogoImg from 'assets/CTB_Text_black.png'
 
 import LayoutDrawerNav from './nav'
 
@@ -13,10 +13,8 @@ export const drawerWidth = 240
 const LayoutDrawer: React.FC = () => {
   return (
     <StyledDrawer>
-      <StyledDiv>
-        <Logo />
-        <LayoutDrawerNav />
-      </StyledDiv>
+      <Logo />
+      <LayoutDrawerNav />
       <LogoutButton />
     </StyledDrawer>
   )
@@ -34,18 +32,12 @@ const StyledDrawer = styled(Drawer).attrs(() => ({
     border-color: ${({ theme }) => theme.palette.primary.main};
   }
 `
-const StyledDiv = styled.div`
-  height: 100%;
-`
 
-const Logo = styled.div.attrs(() => ({
-  background: LogoImg,
+const Logo = styled.img.attrs(() => ({
+  src: LogoImg,
 }))`
-  background-image: url(${({ background }) => background});
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 49px;
-  width: 238px;
+  width: 100%;
+  padding: 0.5rem 1rem;
 `
 
 const LogoutButton = styled(Button).attrs(() => ({
@@ -53,6 +45,5 @@ const LogoutButton = styled(Button).attrs(() => ({
   startIcon: <LogoutIcon />,
   children: 'Logout',
 }))`
-  bottom: 0;
-  margin: 0.5rem;
+  margin: auto 1rem 1rem 1rem;
 `
