@@ -1,11 +1,12 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 
 import AppPage from 'app/'
+import DashboardPage from 'app/dashboard'
 import StatisticsPage from 'app/statistics'
 import LoginPage from 'auth/login'
 import RegisterPage from 'auth/register'
 import ResetPasswordPage from 'auth/resetPassword'
-import { Routes } from 'routes'
+import Routes from 'routes'
 import JakubSandboxPage from 'sandbox/jakub'
 import MirekSandboxPage from 'sandbox/mirek'
 import WiktorSandboxPage from 'sandbox/wiktor'
@@ -24,14 +25,16 @@ export const BrowserRouter = createBrowserRouter([
         <AppPage />
       </ProtectedRoute>
     ),
-  },
-  {
-    path: Routes.StatisticsUrl(),
-    element: (
-      <ProtectedRoute>
-        <StatisticsPage />
-      </ProtectedRoute>
-    ),
+    children: [
+      {
+        path: Routes.DashboardUrl(),
+        element: <DashboardPage />,
+      },
+      {
+        path: Routes.StatisticsUrl(),
+        element: <StatisticsPage />,
+      },
+    ],
   },
   {
     path: Routes.LoginUrl(),
