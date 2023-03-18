@@ -3,18 +3,18 @@ import {
   CssBaseline,
   Theme,
   ThemeProvider as MuiThemeProvider,
-} from '@mui/material';
-import React from 'react';
+} from '@mui/material'
+import React from 'react'
 
-import defaultThemeOptions from './defaults';
-import GlobalStyles from './global';
+import defaultThemeOptions from './defaults'
+import GlobalStyles from './global'
 
 type Props = {
-  children: React.ReactNode;
-};
+  children: React.ReactNode
+}
 
 const ThemeProvider: React.FC<Props> = ({ children }) => {
-  const theme: Theme = createTheme(defaultThemeOptions);
+  const theme: Theme = createTheme(defaultThemeOptions)
 
   return (
     <MuiThemeProvider theme={theme}>
@@ -22,7 +22,7 @@ const ThemeProvider: React.FC<Props> = ({ children }) => {
       <CssBaseline />
       {children}
     </MuiThemeProvider>
-  );
-};
+  )
+}
 
-export default ThemeProvider;
+export default ThemeProvider

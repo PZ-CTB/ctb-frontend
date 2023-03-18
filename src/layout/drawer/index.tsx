@@ -1,20 +1,20 @@
-import { Drawer } from '@mui/material';
-import React from 'react';
-import styled from 'styled-components';
+import { Drawer } from '@mui/material'
+import React from 'react'
+import styled from 'styled-components'
 
-import LayoutDrawerNav from './nav';
+import LayoutDrawerNav from './nav'
 
-export const drawerWidth = 240;
+export const drawerWidth = 240
 
 const LayoutDrawer: React.FC = () => {
   return (
     <StyledDrawer>
       <LayoutDrawerNav />
     </StyledDrawer>
-  );
-};
+  )
+}
 
-export default LayoutDrawer;
+export default LayoutDrawer
 
 const StyledDrawer = styled(Drawer).attrs(() => ({
   open: true,
@@ -25,4 +25,4 @@ const StyledDrawer = styled(Drawer).attrs(() => ({
     width: ${drawerWidth}px;
     border-color: ${({ theme }) => theme.palette.primary.main};
   }
-`;
+`

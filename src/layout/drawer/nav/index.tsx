@@ -1,12 +1,12 @@
-import LogoutIcon from '@mui/icons-material/Logout';
-import { ListItemButton, ListItemText, ListItemIcon } from '@mui/material';
-import List from '@mui/material/List';
-import React from 'react';
-import styled from 'styled-components';
+import LogoutIcon from '@mui/icons-material/Logout'
+import { ListItemButton, ListItemText, ListItemIcon } from '@mui/material'
+import List from '@mui/material/List'
+import React from 'react'
+import styled from 'styled-components'
 
-import { LayoutDrawerNavConfig } from './config';
-import LayoutDrawerNavItem from './item';
-import { ListItemProps } from './types';
+import { LayoutDrawerNavConfig } from './config'
+import LayoutDrawerNavItem from './item'
+import { ListItemProps } from './types'
 
 const LayoutDrawerNav: React.FC = () => {
   return (
@@ -25,10 +25,10 @@ const LayoutDrawerNav: React.FC = () => {
         </StyledListItemButton>
       </StyledList>
     </>
-  );
-};
+  )
+}
 
-export default LayoutDrawerNav;
+export default LayoutDrawerNav
 
 const StyledList = styled(List)`
   position: relative;
@@ -37,5 +37,5 @@ const StyledList = styled(List)`
     bottom: 0px;
     position: 'absolute';
   }
-`;
-const StyledListItemButton = styled(ListItemButton)``;
+`
+const StyledListItemButton = styled(ListItemButton)``

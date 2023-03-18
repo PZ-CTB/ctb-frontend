@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
 const StatisticsPage: React.FC = () => {
   return (
     <>
       <div>Statistics</div>
     </>
-  );
-};
+  )
+}
 
-export default StatisticsPage;
+export default StatisticsPage

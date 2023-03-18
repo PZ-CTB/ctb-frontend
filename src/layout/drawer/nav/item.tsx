@@ -1,12 +1,12 @@
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
+import ListItem from '@mui/material/ListItem'
+import ListItemButton from '@mui/material/ListItemButton'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import ListItemText from '@mui/material/ListItemText'
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
 
-import { ListItemProps } from './types';
+import { ListItemProps } from './types'
 
 const LayoutDrawerNavItem: React.FC<ListItemProps> = ({ name, path, icon }) => {
   return (
@@ -18,10 +18,10 @@ const LayoutDrawerNavItem: React.FC<ListItemProps> = ({ name, path, icon }) => {
         </ListItemButton>
       </ListItem>
     </>
-  );
-};
+  )
+}
 
-export default LayoutDrawerNavItem;
+export default LayoutDrawerNavItem
 
 const StyledNavLink = styled(NavLink)`
   &.active {
@@ -31,4 +31,4 @@ const StyledNavLink = styled(NavLink)`
       color: ${({ theme }) => theme.palette.primary.main};
     }
   }
-`;
+`

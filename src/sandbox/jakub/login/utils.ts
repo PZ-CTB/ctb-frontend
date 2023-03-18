@@ -1,5 +1,5 @@
-import { LoginForm } from './schema';
+import { LoginForm } from './schema'
 
 export const getLoginFormDefaultValues = (): LoginForm => {
-  return { email: '', password: '' };
-};
+  return { email: '', password: '' }
+}

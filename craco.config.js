@@ -1,4 +1,4 @@
-const CracoAlias = require('craco-alias');
+const CracoAlias = require('craco-alias')
 
 module.exports = {
   plugins: [
@@ -16,4 +16,4 @@ module.exports = {
       '@mui/styled-engine': '@mui/styled-engine-sc',
     },
   },
-};
+}

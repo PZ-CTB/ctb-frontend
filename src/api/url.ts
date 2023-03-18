@@ -1,7 +1,7 @@
-const host = process.env.REACT_APP_API_HOST;
+const host = process.env.REACT_APP_API_HOST
 
-if (!host) throw new Error('REACT_APP_API_HOST missing.');
+if (!host) throw new Error('REACT_APP_API_HOST missing.')
 
-export { host };
+export { host }
 
-export const apiBaseUrl = `${host}/api`;
+export const apiBaseUrl = `${host}/api`
