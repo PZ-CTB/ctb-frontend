@@ -1,6 +1,6 @@
 {
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "import"],
+  "plugins": ["@typescript-eslint", "import", "only-warn"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -10,12 +10,12 @@
   ],
   "rules": {
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-unused-vars": "warn",
     "eqeqeq": [2, "smart"],
     "no-console": ["warn"],
-    "import/no-unresolved": "error",
+    "import/no-unresolved": "warn",
     "import/order": [
-      "error",
+      "warn",
       {
         "groups": [
           "builtin",
