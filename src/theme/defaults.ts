@@ -1,7 +1,5 @@
 import { ThemeOptions } from '@mui/material';
 
-//
-
 const defaultPalette = {
   primary: {
     lighter: '#F6D1FA',
@@ -56,10 +54,10 @@ const defaultPalette = {
 
 //
 
-const defaultThemeOptions: ThemeOptions = {
+const defaultThemeOptions = {
   palette: {
     ...defaultPalette,
   },
-};
+} satisfies ThemeOptions;
 
 export default defaultThemeOptions;
