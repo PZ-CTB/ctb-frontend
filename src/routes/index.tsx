@@ -8,6 +8,6 @@ const Routes = {
     `/reset-password/${uid && token ? ':uid/:token' : ''}`,
   LoginUrl: () => `/login`,
   RegisterUrl: () => `/register`,
-}
+};
 
-export default Routes
+export default Routes;

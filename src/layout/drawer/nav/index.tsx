@@ -1,9 +1,9 @@
-import List from '@mui/material/List'
-import React from 'react'
+import List from '@mui/material/List';
+import React from 'react';
 
-import { LayoutDrawerNavConfig } from './config'
-import LayoutDrawerNavItem from './item'
-import { ListItemProps } from './types'
+import { LayoutDrawerNavConfig } from './config';
+import LayoutDrawerNavItem from './item';
+import { ListItemProps } from './types';
 
 const LayoutDrawerNav: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const LayoutDrawerNav: React.FC = () => {
         <LayoutDrawerNavItem key={item.name} {...item} />
       ))}
     </List>
-  )
-}
+  );
+};
 
-export default LayoutDrawerNav
+export default LayoutDrawerNav;

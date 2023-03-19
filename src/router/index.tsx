@@ -1,17 +1,17 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 
-import AppPage from 'app/'
-import DashboardPage from 'app/dashboard'
-import StatisticsPage from 'app/statistics'
-import LoginPage from 'auth/login'
-import RegisterPage from 'auth/register'
-import ResetPasswordPage from 'auth/resetPassword'
-import Routes from 'routes'
-import JakubSandboxPage from 'sandbox/jakub'
-import MirekSandboxPage from 'sandbox/mirek'
-import WiktorSandboxPage from 'sandbox/wiktor'
+import AppPage from 'app/';
+import DashboardPage from 'app/dashboard';
+import StatisticsPage from 'app/statistics';
+import LoginPage from 'auth/login';
+import RegisterPage from 'auth/register';
+import ResetPasswordPage from 'auth/resetPassword';
+import Routes from 'routes';
+import JakubSandboxPage from 'sandbox/jakub';
+import MirekSandboxPage from 'sandbox/mirek';
+import WiktorSandboxPage from 'sandbox/wiktor';
 
-import ProtectedRoute from './private'
+import ProtectedRoute from './private';
 
 export const BrowserRouter = createBrowserRouter([
   {
@@ -64,4 +64,4 @@ export const BrowserRouter = createBrowserRouter([
     path: Routes.SandboxUrl('wiktor'),
     element: <WiktorSandboxPage />,
   },
-])
+]);

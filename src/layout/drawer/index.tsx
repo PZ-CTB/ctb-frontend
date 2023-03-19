@@ -1,14 +1,14 @@
-import LogoutIcon from '@mui/icons-material/Logout'
-import { Drawer } from '@mui/material'
-import Button from '@mui/material/Button'
-import React from 'react'
-import styled from 'styled-components'
+import LogoutIcon from '@mui/icons-material/Logout';
+import { Drawer } from '@mui/material';
+import Button from '@mui/material/Button';
+import React from 'react';
+import styled from 'styled-components';
 
-import LogoImg from 'assets/CTB_Text_black.png'
+import LogoImg from 'assets/CTB_Text_black.png';
 
-import LayoutDrawerNav from './nav'
+import LayoutDrawerNav from './nav';
 
-export const drawerWidth = 240
+export const drawerWidth = 240;
 
 const LayoutDrawer: React.FC = () => {
   return (
@@ -17,10 +17,10 @@ const LayoutDrawer: React.FC = () => {
       <LayoutDrawerNav />
       <LogoutButton />
     </StyledDrawer>
-  )
-}
+  );
+};
 
-export default LayoutDrawer
+export default LayoutDrawer;
 
 const StyledDrawer = styled(Drawer).attrs(() => ({
   open: true,
@@ -31,14 +31,14 @@ const StyledDrawer = styled(Drawer).attrs(() => ({
     width: ${drawerWidth}px;
     border-color: ${({ theme }) => theme.palette.primary.main};
   }
-`
+`;
 
 const Logo = styled.img.attrs(() => ({
   src: LogoImg,
 }))`
   width: 100%;
   padding: 0.5rem 1rem;
-`
+`;
 
 const LogoutButton = styled(Button).attrs(() => ({
   variant: 'outlined',
@@ -46,4 +46,4 @@ const LogoutButton = styled(Button).attrs(() => ({
   children: 'Logout',
 }))`
   margin: auto 1rem 1rem 1rem;
-`
+`;

@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+./node_modules/.bin/tsc
 ./node_modules/.bin/eslint .
 ./node_modules/.bin/prettier --write .
 git add .

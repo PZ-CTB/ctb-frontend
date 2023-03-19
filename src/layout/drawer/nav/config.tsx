@@ -1,9 +1,9 @@
-import AnalyticsIcon from '@mui/icons-material/Analytics'
-import DashboardIcon from '@mui/icons-material/Dashboard'
+import AnalyticsIcon from '@mui/icons-material/Analytics';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 
-import Routes from 'routes'
+import Routes from 'routes';
 
-import { ListItemProps } from './types'
+import { ListItemProps } from './types';
 
 export const LayoutDrawerNavConfig: Array<ListItemProps> = [
   {
@@ -16,4 +16,4 @@ export const LayoutDrawerNavConfig: Array<ListItemProps> = [
     path: Routes.StatisticsUrl(),
     icon: <AnalyticsIcon />,
   },
-]
+];
