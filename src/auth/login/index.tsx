@@ -2,6 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod/dist/zod';
 import { Button } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import TextInput from 'components/textInput';
@@ -14,6 +15,8 @@ import { getLoginFormDefaultValues } from '../utils';
 import { LoginForm, LoginFormSchema } from './schema';
 
 const LoginPage: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const methods = useForm<LoginForm>({
     defaultValues: getLoginFormDefaultValues(),
     reValidateMode: 'onSubmit',
@@ -28,7 +31,10 @@ const LoginPage: React.FC = () => {
   const { handleSubmit } = methods;
 
   const onSubmit = handleSubmit((data) => {
+    const from = location.state?.from || '/';
     // backend request
+    // on the end:
+    navigate(from, { replace: true });
     console.log(data);
   });
 
