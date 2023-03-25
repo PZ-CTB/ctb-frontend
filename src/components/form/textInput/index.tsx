@@ -1,4 +1,5 @@
 import { TextField, TextFieldProps } from '@mui/material';
+import React from 'react';
 import { Controller } from 'react-hook-form';
 
 type Props = TextFieldProps & {
@@ -6,9 +7,7 @@ type Props = TextFieldProps & {
   label: string;
 };
 
-const TextInput = function (props: Props) {
-  const { name, label, ...textFieldProps } = props;
-
+const TextInput: React.FC<Props> = ({ name, label, ...textFieldProps }) => {
   return (
     <Controller
       name={name}

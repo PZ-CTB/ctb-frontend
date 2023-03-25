@@ -1,3 +1,5 @@
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -20,7 +22,11 @@ const Providers: React.FC<Props> = ({ children }) => {
     <RQueryClientProvider>
       <AuthProvider>
         <UserProvider>
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              {children}
+            </LocalizationProvider>
+          </ThemeProvider>
         </UserProvider>
       </AuthProvider>
     </RQueryClientProvider>
