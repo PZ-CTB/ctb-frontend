@@ -8,12 +8,11 @@ import Routes from 'routes';
 import useRedirectOnMount from 'utils/useRedirectOnMount';
 
 const AppPage: React.FC = () => {
-  const location = useLocation();
   useRemoveTrailingSlash();
-  const redirectCondition = location.pathname === Routes.AppUrl();
-  console.log(location.pathname);
-  useRedirectOnMount(Routes.DashboardUrl(), redirectCondition);
 
+  const location = useLocation();
+  const redirectCondition = location.pathname === Routes.AppUrl();
+  useRedirectOnMount(Routes.DashboardUrl(), redirectCondition);
   return (
     <Layout>
       <LayoutDrawer />

@@ -9,15 +9,21 @@ import Routes from 'routes';
 
 const ErrorPage: React.FC = () => {
   return (
-    <>
-      <div>
-        <h1>Oops! You seem to be lost.</h1>
-        <Gif />
-        <DashboardButton />
-      </div>
-    </>
+    <Container>
+      <h1>Oops! You seem to be lost.</h1>
+      <Gif />
+      <DashboardButton />
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+`;
 
 export default ErrorPage;
 
@@ -27,14 +33,10 @@ const DashboardButton = styled(Button).attrs(() => ({
   children: 'Go to Dashboard',
   component: Link,
   to: Routes.DashboardUrl(),
-}))`
-  margin: auto 1rem 1rem 1rem;
-`;
+}))``;
 
 const Gif = styled.img.attrs(() => ({
   src: ErrorGif,
 }))`
   width: 50%;
-  padding: 1rem;
-  display: block;
 `;
