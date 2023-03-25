@@ -6,6 +6,7 @@ import StatisticsPage from 'app/statistics';
 import LoginPage from 'auth/login';
 import RegisterPage from 'auth/register';
 import ResetPasswordPage from 'auth/resetPassword';
+import ErrorPage from 'pages/error';
 import Routes from 'routes';
 import MirekSandboxPage from 'sandbox/mirek';
 import WiktorSandboxPage from 'sandbox/wiktor';
@@ -58,5 +59,19 @@ export const BrowserRouter = createBrowserRouter([
   {
     path: Routes.SandboxUrl('wiktor'),
     element: <WiktorSandboxPage />,
+  },
+  {
+    path: `*`,
+    element: (
+      <ProtectedRoute>
+        <AppPage />
+      </ProtectedRoute>
+    ),
+    children: [
+      {
+        path: `*`,
+        element: <ErrorPage />,
+      },
+    ],
   },
 ]);
