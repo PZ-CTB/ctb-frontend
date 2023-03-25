@@ -17,6 +17,8 @@ const ErrorPage: React.FC = () => {
   );
 };
 
+export default ErrorPage;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -24,8 +26,6 @@ const Container = styled.div`
   align-items: center;
   gap: 1rem;
 `;
-
-export default ErrorPage;
 
 const DashboardButton = styled(Button).attrs(() => ({
   variant: 'outlined',
