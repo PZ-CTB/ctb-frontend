@@ -4,14 +4,14 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 
-import TextInput from 'components/textInput';
+import TextInput from 'components/form/textInput';
 import Routes from 'routes';
 
+import { postRegister } from '../api';
 import { StyledForm } from '../components/form';
 import AuthFormContainer from '../components/form/container';
+import { RegisterForm, RegisterFormSchema } from '../schema';
 import { getRegisterFormDefaultValues } from '../utils';
-
-import { RegisterForm, RegisterFormSchema } from './schema';
 
 const RegisterPage: React.FC = () => {
   const methods = useForm<RegisterForm>({
@@ -21,20 +21,19 @@ const RegisterPage: React.FC = () => {
 
   const link: { label: string; to: string } = {
     label: 'Already have an account? Click to login',
-    to: Routes.LoginUrl(),
+    to: Routes.Login(),
   };
 
   const { handleSubmit } = methods;
 
-  const onSubmit = handleSubmit((data) => {
-    // backend request
-    console.log(data);
+  const onSubmit = handleSubmit(async (data) => {
+    await postRegister(data);
   });
 
   return (
     <AuthFormContainer title="Sign Up" link={link}>
       <StyledForm methods={methods} onSubmit={onSubmit}>
-        <TextInput name="email" label="Email" />
+        <TextInput name="email" label="Email" type="email" />
         <TextInput name="password" label="Password" type="password" />
         <TextInput
           name="confirmPassword"

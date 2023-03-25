@@ -8,12 +8,12 @@ import { ListItemProps } from './types';
 export const LayoutDrawerNavConfig: Array<ListItemProps> = [
   {
     name: 'Dashboard',
-    path: Routes.DashboardUrl(),
+    path: Routes.Dashboard(),
     icon: <DashboardIcon />,
   },
   {
     name: 'Statistics',
-    path: Routes.StatisticsUrl(),
+    path: Routes.Statistics(),
     icon: <AnalyticsIcon />,
   },
 ];

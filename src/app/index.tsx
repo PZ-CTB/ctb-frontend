@@ -11,8 +11,9 @@ const AppPage: React.FC = () => {
   useRemoveTrailingSlash();
 
   const location = useLocation();
-  const redirectCondition = location.pathname === Routes.AppUrl();
-  useRedirectOnMount(Routes.DashboardUrl(), redirectCondition);
+  const redirectCondition = location.pathname === Routes.App();
+  useRedirectOnMount(Routes.Dashboard(), redirectCondition);
+
   return (
     <Layout>
       <LayoutDrawer />

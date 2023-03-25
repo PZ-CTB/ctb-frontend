@@ -1,13 +1,15 @@
 const Routes = {
-  HomeUrl: () => `/`,
-  AppUrl: () => `/app`,
-  StatisticsUrl: () => `/app/statistics`,
-  DashboardUrl: () => `/app/dashboard`,
-  SandboxUrl: (user: string) => `/sandbox/${user}`,
-  ResetPasswordUrl: (uid?: string, token?: string) =>
+  Home: () => `/`,
+  Login: () => `/login`,
+  Register: () => `/register`,
+  ResetPassword: (uid?: string, token?: string) =>
     `/reset-password/${uid && token ? ':uid/:token' : ''}`,
-  LoginUrl: () => `/login`,
-  RegisterUrl: () => `/register`,
+
+  App: () => `/app`,
+  Statistics: () => `/app/statistics`,
+  Dashboard: () => `/app/dashboard`,
+
+  Sandbox: (user: string) => `/sandbox/${user}`,
 };
 
 export default Routes;

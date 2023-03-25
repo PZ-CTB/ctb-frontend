@@ -32,7 +32,7 @@ const DashboardButton = styled(Button).attrs(() => ({
   startIcon: <DashboardIcon />,
   children: 'Go to Dashboard',
   component: Link,
-  to: Routes.DashboardUrl(),
+  to: Routes.Dashboard(),
 }))``;
 
 const Gif = styled.img.attrs(() => ({

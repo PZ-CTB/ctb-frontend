@@ -5,17 +5,20 @@ import React from 'react';
 import styled from 'styled-components';
 
 import LogoImg from 'assets/CTB_Text_black.png';
+import { useAuthSignOutAndRedirect } from 'auth/hooks';
 
 import LayoutDrawerNav from './nav';
 
 export const drawerWidth = 240;
 
 const LayoutDrawer: React.FC = () => {
+  const signOutAndRedirect = useAuthSignOutAndRedirect();
+
   return (
     <StyledDrawer>
       <Logo />
       <LayoutDrawerNav />
-      <LogoutButton />
+      <LogoutButton onClick={signOutAndRedirect} />
     </StyledDrawer>
   );
 };
