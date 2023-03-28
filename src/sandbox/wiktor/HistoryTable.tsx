@@ -1,8 +1,7 @@
 import Paper from '@mui/material/Paper';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import React from 'react';
-import styled from // useTheme
-'styled-components';
+import styled from 'styled-components'; // useTheme
 
 import { HistoryTableData } from './sampleHistoryTableData';
 
@@ -46,7 +45,6 @@ const Table: React.FC<TableProps> = (props) => {
             },
           }}
           pageSizeOptions={[5, 10, 20, 100]}
-          //   checkboxSelection
           autoHeight
         />
       </Paper>
