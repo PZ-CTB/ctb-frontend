@@ -1,13 +1,17 @@
 import axios from 'axios';
 
-import { request as requestInterceptors } from './interceptors';
+import { getAxiosAuthorizationHeader } from './headers';
 
 // default instance with auth
 
 export const axiosDefault = (function () {
   const instance = createInstance();
 
-  instance.interceptors.request.use(...requestInterceptors.addAuthHeader);
+  instance.interceptors.request.use((config) => {
+    config.headers['Content-Type'] = 'application/json';
+    config.headers['x-access-token'] = getAxiosAuthorizationHeader();
+    return config;
+  });
 
   return instance;
 })();

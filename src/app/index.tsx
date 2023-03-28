@@ -1,13 +1,18 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import LayoutDrawer, { drawerWidth } from 'layout/drawer';
+import useRemoveTrailingSlash from 'router/useRemoveTrailingSlash';
 import Routes from 'routes';
 import useRedirectOnMount from 'utils/useRedirectOnMount';
 
 const AppPage: React.FC = () => {
-  useRedirectOnMount(Routes.DashboardUrl());
+  useRemoveTrailingSlash();
+
+  const location = useLocation();
+  const redirectCondition = location.pathname === Routes.App();
+  useRedirectOnMount(Routes.Dashboard(), redirectCondition);
 
   return (
     <Layout>

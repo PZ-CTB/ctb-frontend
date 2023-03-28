@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter, Outlet } from 'react-router-dom';
 
 import AppPage from 'app/';
 import DashboardPage from 'app/dashboard';
@@ -6,8 +6,9 @@ import StatisticsPage from 'app/statistics';
 import LoginPage from 'auth/login';
 import RegisterPage from 'auth/register';
 import ResetPasswordPage from 'auth/resetPassword';
+import ErrorPage from 'pages/error';
+import Providers from 'providers';
 import Routes from 'routes';
-import JakubSandboxPage from 'sandbox/jakub';
 import MirekSandboxPage from 'sandbox/mirek';
 import WiktorSandboxPage from 'sandbox/wiktor';
 
@@ -15,53 +16,69 @@ import ProtectedRoute from './private';
 
 export const BrowserRouter = createBrowserRouter([
   {
-    path: Routes.HomeUrl(),
-    element: <Navigate to="/app" />,
-  },
-  {
-    path: Routes.AppUrl(),
+    path: Routes.Home(),
     element: (
-      <ProtectedRoute>
-        <AppPage />
-      </ProtectedRoute>
+      <Providers>
+        <Outlet />
+      </Providers>
     ),
     children: [
       {
-        path: Routes.DashboardUrl(),
-        element: <DashboardPage />,
+        path: Routes.App(),
+        element: (
+          <ProtectedRoute>
+            <AppPage />
+          </ProtectedRoute>
+        ),
+        children: [
+          {
+            path: Routes.Dashboard(),
+            element: <DashboardPage />,
+          },
+          {
+            path: Routes.Statistics(),
+            element: <StatisticsPage />,
+          },
+        ],
       },
       {
-        path: Routes.StatisticsUrl(),
-        element: <StatisticsPage />,
+        path: Routes.Login(),
+        element: <LoginPage />,
+      },
+      {
+        path: Routes.Register(),
+        element: <RegisterPage />,
+      },
+      {
+        path: Routes.ResetPassword(':uid', ':token'),
+        element: <ResetPasswordPage />,
+      },
+      {
+        path: Routes.ResetPassword(),
+        element: <ResetPasswordPage />,
+      },
+      {
+        path: Routes.Sandbox('mirek'),
+        element: <MirekSandboxPage />,
+      },
+      {
+        path: Routes.Sandbox('wiktor'),
+        element: <WiktorSandboxPage />,
+      },
+      {
+        path: `*`,
+        element: (
+          <ProtectedRoute>
+            <AppPage />
+          </ProtectedRoute>
+        ),
+        children: [
+          {
+            path: `*`,
+            element: <ErrorPage />,
+          },
+        ],
       },
     ],
-  },
-  {
-    path: Routes.LoginUrl(),
-    element: <LoginPage />,
-  },
-  {
-    path: Routes.RegisterUrl(),
-    element: <RegisterPage />,
-  },
-  {
-    path: Routes.ResetPasswordUrl(':uid', ':token'),
-    element: <ResetPasswordPage />,
-  },
-  {
-    path: Routes.ResetPasswordUrl(),
-    element: <ResetPasswordPage />,
-  },
-  {
-    path: Routes.SandboxUrl('mirek'),
-    element: <MirekSandboxPage />,
-  },
-  {
-    path: Routes.SandboxUrl('jakub'),
-    element: <JakubSandboxPage />,
-  },
-  {
-    path: Routes.SandboxUrl('wiktor'),
-    element: <WiktorSandboxPage />,
   },
 ]);

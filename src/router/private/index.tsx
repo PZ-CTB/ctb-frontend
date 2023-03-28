@@ -1,6 +1,7 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 
+import { useIsAuthenticated } from 'auth/hooks';
 import Routes from 'routes';
 
 type Props = {
@@ -8,11 +9,12 @@ type Props = {
 };
 
 const ProtectedRoute: React.FC<Props> = ({ children }) => {
-  const isAuthenticated = true;
+  const location = useLocation();
+  const isAuthenticated = useIsAuthenticated();
 
   if (isAuthenticated) return children;
 
-  return <Navigate to={Routes.LoginUrl()} replace />;
+  return <Navigate to={Routes.Login()} state={{ from: location }} replace />;
 };
 
 export default ProtectedRoute;
