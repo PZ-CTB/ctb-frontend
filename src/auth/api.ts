@@ -1,19 +1,27 @@
-import { post } from 'api';
+import { get, post } from 'api';
+import { User } from 'user/types';
 
 import { LoginForm, RegisterForm } from './schema';
-import { AuthData } from './types';
+import { LoginResponse } from './types';
+
+export const API_ROOT_PATH = '/auth';
 
 //
 
-type LoginResponse = {
-  auth_token: AuthData['token'];
-};
-
 export const postLogin = (data: LoginForm) =>
-  post<LoginResponse>(`login/`, data).then((response) => response.data);
+  post<LoginResponse>(API_ROOT_PATH + `/login`, data).then(
+    (response) => response.data
+  );
 
 export const postRegister = (data: RegisterForm) =>
-  post<LoginResponse>(`register/`, data).then((response) => response.data);
+  post<LoginResponse>(API_ROOT_PATH + `/register`, data).then(
+    (response) => response.data
+  );
 
 export const postLogout = () =>
-  post('logout/').then((response) => response.data);
+  post(API_ROOT_PATH + '/logout').then((response) => response.data);
+
+export const USER_SESSION_API_PATH = API_ROOT_PATH + '/me';
+
+export const getUserSession = () =>
+  get<User>(USER_SESSION_API_PATH).then((response) => response.data);
