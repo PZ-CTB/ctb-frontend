@@ -6,6 +6,8 @@ import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import React from 'react';
 import styled from 'styled-components'; // useTheme
 
+import AmountChip from 'components/ui/chip/amount';
+
 import { HistoryTableData, OperationType } from './sampleHistoryTableData';
 
 type TableProps = {
@@ -16,8 +18,8 @@ const Table: React.FC<TableProps> = (props) => {
   //   const classes = useStyles();
 
   const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', flex: 1, maxWidth: 40 },
-    { field: 'date', headerName: 'Date', width: 100, flex: 1 },
+    { field: 'id', headerName: 'ID', flex: 1 },
+    { field: 'date', headerName: 'Date', flex: 1 },
     {
       field: 'operationType',
       headerName: 'Operation Type',
@@ -42,7 +44,6 @@ const Table: React.FC<TableProps> = (props) => {
     {
       field: 'amount',
       headerName: 'Amount',
-      width: 100,
       flex: 1,
       headerAlign: 'right',
       align: 'right',
@@ -50,14 +51,10 @@ const Table: React.FC<TableProps> = (props) => {
     {
       field: 'balanceBefore',
       headerName: 'Balance Before',
-      width: 100,
       flex: 1,
       renderCell: (params: GridRenderCellParams) => (
         <>
-          <Chip
-            label={params.value}
-            color={params.value > 0 ? 'success' : 'error'}
-          />
+          <AmountChip value={params.value} />
         </>
       ),
       ...sharedNumberOptions,
@@ -65,14 +62,10 @@ const Table: React.FC<TableProps> = (props) => {
     {
       field: 'balanceAfter',
       headerName: 'Balance After',
-      width: 100,
       flex: 1,
       renderCell: (params: GridRenderCellParams) => (
         <>
-          <Chip
-            label={params.value}
-            color={params.value > 0 ? 'success' : 'error'}
-          />
+          <AmountChip value={params.value} />
         </>
       ),
       ...sharedNumberOptions,
@@ -103,7 +96,6 @@ const Table: React.FC<TableProps> = (props) => {
 export default Table;
 
 const Container = styled.div`
-  max-width: 800px;
   padding: 1rem;
   margin: 1rem;
 `;
