@@ -1,10 +1,24 @@
 import * as _ from 'lodash';
 
+export enum OperationType {
+  Deposit = 'Deposit',
+  Withdrawal = 'Withdrawal',
+}
+
+export type HistoryTableData = {
+  id: number;
+  date: string;
+  operationType: OperationType;
+  amount: number;
+  balanceBefore: number;
+  balanceAfter: number;
+};
+
 const data: HistoryTableData[] = _.shuffle([
   {
     id: 1,
     date: '2022-01-01',
-    operationType: 'Deposit',
+    operationType: OperationType.Deposit,
     amount: 1000,
     balanceBefore: 0,
     balanceAfter: 1000,
@@ -12,7 +26,7 @@ const data: HistoryTableData[] = _.shuffle([
   {
     id: 2,
     date: '2022-01-05',
-    operationType: 'Withdrawal',
+    operationType: OperationType.Withdrawal,
     amount: 500,
     balanceBefore: 1000,
     balanceAfter: 500,
@@ -20,7 +34,7 @@ const data: HistoryTableData[] = _.shuffle([
   {
     id: 3,
     date: '2022-01-10',
-    operationType: 'Deposit',
+    operationType: OperationType.Deposit,
     amount: 750,
     balanceBefore: 500,
     balanceAfter: 1250,
@@ -28,7 +42,7 @@ const data: HistoryTableData[] = _.shuffle([
   {
     id: 4,
     date: '2022-01-15',
-    operationType: 'Withdrawal',
+    operationType: OperationType.Withdrawal,
     amount: 250,
     balanceBefore: 1250,
     balanceAfter: 1000,
@@ -36,7 +50,7 @@ const data: HistoryTableData[] = _.shuffle([
   {
     id: 5,
     date: '2023-03-01',
-    operationType: 'Deposit',
+    operationType: OperationType.Deposit,
     amount: 5000,
     balanceBefore: 0,
     balanceAfter: 5000,
@@ -44,7 +58,7 @@ const data: HistoryTableData[] = _.shuffle([
   {
     id: 6,
     date: '2023-03-07',
-    operationType: 'Withdrawal',
+    operationType: OperationType.Withdrawal,
     amount: 1000,
     balanceBefore: 5000,
     balanceAfter: 4000,
@@ -52,7 +66,7 @@ const data: HistoryTableData[] = _.shuffle([
   {
     id: 7,
     date: '2023-03-14',
-    operationType: 'Deposit',
+    operationType: OperationType.Deposit,
     amount: 2500,
     balanceBefore: 4000,
     balanceAfter: 6500,
@@ -60,7 +74,7 @@ const data: HistoryTableData[] = _.shuffle([
   {
     id: 8,
     date: '2023-03-21',
-    operationType: 'Withdrawal',
+    operationType: OperationType.Withdrawal,
     amount: 2000,
     balanceBefore: 6500,
     balanceAfter: 4500,
@@ -68,20 +82,11 @@ const data: HistoryTableData[] = _.shuffle([
   {
     id: 9,
     date: '2023-03-28',
-    operationType: 'Deposit',
+    operationType: OperationType.Deposit,
     amount: 10000,
     balanceBefore: 4500,
     balanceAfter: 14500,
   },
 ]);
-
-export type HistoryTableData = {
-  id: number;
-  date: string;
-  operationType: string;
-  amount: number;
-  balanceBefore: number;
-  balanceAfter: number;
-};
 
 export default data;

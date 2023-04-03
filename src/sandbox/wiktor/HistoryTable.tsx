@@ -6,13 +6,7 @@ import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import React from 'react';
 import styled from 'styled-components'; // useTheme
 
-import { HistoryTableData } from './sampleHistoryTableData';
-
-const Container = styled.div`
-  max-width: 800px;
-  padding: 1rem;
-  margin: 1rem;
-`;
+import { HistoryTableData, OperationType } from './sampleHistoryTableData';
 
 type TableProps = {
   data: HistoryTableData[];
@@ -29,16 +23,21 @@ const Table: React.FC<TableProps> = (props) => {
       headerName: 'Operation Type',
       width: 150,
       flex: 1,
-      renderCell: (params: GridRenderCellParams) => (
-        <>
-          <Chip label={params.value} color="info" />
-          {params.value === 'Deposit' ? (
-            <CallReceivedIcon></CallReceivedIcon>
-          ) : (
-            <CallMadeIcon></CallMadeIcon>
-          )}
-        </>
-      ),
+      renderCell: (
+        params: GridRenderCellParams<
+          HistoryTableData,
+          HistoryTableData['operationType']
+        >
+      ) => {
+        if (!params.value) return '-';
+        return (
+          <>
+            <Chip label={params.value} color="info" />
+            {params.value === OperationType.Deposit && <CallReceivedIcon />}
+            {params.value === OperationType.Withdrawal && <CallMadeIcon />}
+          </>
+        );
+      },
     },
     {
       field: 'amount',
@@ -61,8 +60,7 @@ const Table: React.FC<TableProps> = (props) => {
           />
         </>
       ),
-      headerAlign: 'right',
-      align: 'right',
+      ...sharedNumberOptions,
     },
     {
       field: 'balanceAfter',
@@ -77,8 +75,7 @@ const Table: React.FC<TableProps> = (props) => {
           />
         </>
       ),
-      headerAlign: 'right',
-      align: 'right',
+      ...sharedNumberOptions,
     },
   ];
 
@@ -104,3 +101,14 @@ const Table: React.FC<TableProps> = (props) => {
 };
 
 export default Table;
+
+const Container = styled.div`
+  max-width: 800px;
+  padding: 1rem;
+  margin: 1rem;
+`;
+
+const sharedNumberOptions: Pick<GridColDef, 'headerAlign' | 'align'> = {
+  headerAlign: 'right',
+  align: 'right',
+};
