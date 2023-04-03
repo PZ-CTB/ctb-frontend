@@ -1,19 +1,23 @@
-import { Chip } from '@mui/material';
-import { useMemo } from 'react';
+import { Chip, ChipProps } from '@mui/material';
+import React, { useMemo } from 'react';
+import styled from 'styled-components';
 
-type Props = {
+type Props = ChipProps & {
   value: number;
-  className?: string; // for styled-components
 };
 
-const AmountChip: React.FC<Props> = ({ className, value }) => {
+const AmountChip: React.FC<Props> = ({ value, ...props }) => {
   const color = useMemo(() => {
     if (value > 0) return 'success';
     if (value < 0) return 'error';
     return 'info';
   }, [value]);
 
-  return <Chip className={className} label={value} color={color} />;
+  return <FixedWidthChip label={value} color={color} {...props} />;
 };
 
 export default AmountChip;
+
+export const FixedWidthChip = styled(Chip)`
+  width: 100px;
+`;

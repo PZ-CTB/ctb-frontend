@@ -5,7 +5,7 @@ export enum OperationType {
   Withdrawal = 'Withdrawal',
 }
 
-export type HistoryTableData = {
+export type StatisticsTableData = {
   id: number;
   date: string;
   operationType: OperationType;
@@ -14,7 +14,7 @@ export type HistoryTableData = {
   balanceAfter: number;
 };
 
-const data: HistoryTableData[] = _.shuffle([
+const data: StatisticsTableData[] = _.shuffle([
   {
     id: 1,
     date: '2022-01-01',
