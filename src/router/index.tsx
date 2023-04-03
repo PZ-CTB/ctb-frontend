@@ -9,8 +9,6 @@ import ResetPasswordPage from 'auth/resetPassword';
 import ErrorPage from 'pages/error';
 import Providers from 'providers';
 import Routes from 'routes';
-import MirekSandboxPage from 'sandbox/mirek';
-import WiktorSandboxPage from 'sandbox/wiktor';
 
 import ProtectedRoute from './private';
 
@@ -56,14 +54,6 @@ export const BrowserRouter = createBrowserRouter([
       {
         path: Routes.ResetPassword(),
         element: <ResetPasswordPage />,
-      },
-      {
-        path: Routes.Sandbox('mirek'),
-        element: <MirekSandboxPage />,
-      },
-      {
-        path: Routes.Sandbox('wiktor'),
-        element: <WiktorSandboxPage />,
       },
       {
         path: `*`,
