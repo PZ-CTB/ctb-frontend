@@ -1,9 +1,13 @@
 import React from 'react';
 
+import Table from './HistoryTable';
+import data from './sampleHistoryTableData';
+
 const StatisticsPage: React.FC = () => {
   return (
     <>
-      <div>Statistics</div>
+      <h1>Statistics</h1>
+      <Table data={data} />
     </>
   );
 };

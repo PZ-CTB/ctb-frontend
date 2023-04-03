@@ -8,6 +8,7 @@ import styled from 'styled-components'; // useTheme
 
 import AmountChip from 'components/ui/chip/amount';
 
+import styles from './historyTable.module.css';
 import { HistoryTableData, OperationType } from './sampleHistoryTableData';
 
 type TableProps = {
@@ -34,7 +35,11 @@ const Table: React.FC<TableProps> = (props) => {
         if (!params.value) return '-';
         return (
           <>
-            <Chip label={params.value} color="info" />
+            <Chip
+              label={params.value}
+              color="info"
+              className={styles.chipInsideTable}
+            />
             {params.value === OperationType.Deposit && <CallReceivedIcon />}
             {params.value === OperationType.Withdrawal && <CallMadeIcon />}
           </>
@@ -52,9 +57,17 @@ const Table: React.FC<TableProps> = (props) => {
       field: 'balanceBefore',
       headerName: 'Balance Before',
       flex: 1,
-      renderCell: (params: GridRenderCellParams) => (
+      renderCell: (
+        params: GridRenderCellParams<
+          HistoryTableData,
+          HistoryTableData['balanceBefore']
+        >
+      ) => (
         <>
-          <AmountChip value={params.value} />
+          <AmountChip
+            value={params.value ?? 0}
+            className={styles.chipInsideTable}
+          />
         </>
       ),
       ...sharedNumberOptions,
@@ -63,9 +76,17 @@ const Table: React.FC<TableProps> = (props) => {
       field: 'balanceAfter',
       headerName: 'Balance After',
       flex: 1,
-      renderCell: (params: GridRenderCellParams) => (
+      renderCell: (
+        params: GridRenderCellParams<
+          HistoryTableData,
+          HistoryTableData['balanceAfter']
+        >
+      ) => (
         <>
-          <AmountChip value={params.value} />
+          <AmountChip
+            value={params.value ?? 0}
+            className={styles.chipInsideTable}
+          />
         </>
       ),
       ...sharedNumberOptions,
