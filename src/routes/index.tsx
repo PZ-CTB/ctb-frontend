@@ -8,6 +8,7 @@ const Routes = {
   App: () => `/app`,
   Statistics: () => `/app/statistics`,
   Dashboard: () => `/app/dashboard`,
+  Profile: () => `/app/profile`,
 
   Sandbox: (user: string) => `/sandbox/${user}`,
 };

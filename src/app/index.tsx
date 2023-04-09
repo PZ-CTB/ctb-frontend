@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
+import LayoutAppBar from 'layout/bar';
 import LayoutDrawer, { drawerWidth } from 'layout/drawer';
 import useRemoveTrailingSlash from 'router/useRemoveTrailingSlash';
 import Routes from 'routes';
@@ -15,12 +16,15 @@ const AppPage: React.FC = () => {
   useRedirectOnMount(Routes.Dashboard(), redirectCondition);
 
   return (
-    <Layout>
-      <LayoutDrawer />
-      <Main>
-        <Outlet />
-      </Main>
-    </Layout>
+    <div>
+      <LayoutAppBar />
+      <Layout>
+        <LayoutDrawer />
+        <Main>
+          <Outlet />
+        </Main>
+      </Layout>
+    </div>
   );
 };
 
