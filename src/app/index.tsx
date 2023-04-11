@@ -3,7 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import LayoutAppBar from 'layout/bar';
-import LayoutDrawer, { drawerWidth } from 'layout/drawer';
+import LayoutDrawer from 'layout/drawer';
 import useRemoveTrailingSlash from 'router/useRemoveTrailingSlash';
 import Routes from 'routes';
 import useRedirectOnMount from 'utils/useRedirectOnMount';
@@ -16,15 +16,16 @@ const AppPage: React.FC = () => {
   useRedirectOnMount(Routes.Dashboard(), redirectCondition);
 
   return (
-    <div>
-      <LayoutAppBar />
-      <Layout>
-        <LayoutDrawer />
+    <Layout>
+      <LayoutDrawer />
+
+      <Container>
+        <LayoutAppBar />
         <Main>
           <Outlet />
         </Main>
-      </Layout>
-    </div>
+      </Container>
+    </Layout>
   );
 };
 
@@ -33,10 +34,17 @@ export default AppPage;
 const Layout = styled.div`
   display: flex;
   max-width: 100vw;
-  max-height: 100vh;
+  height: 100vh;
   width: 100%;
 `;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
 const Main = styled.main`
-  padding: 1.5rem 1.5rem 1.5rem calc(${drawerWidth}px + 1.5rem);
+  padding: 1.5rem;
   width: 100%;
 `;
