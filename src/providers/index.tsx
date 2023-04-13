@@ -1,5 +1,6 @@
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { SnackbarProvider } from 'notistack';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -24,7 +25,7 @@ const Providers: React.FC<Props> = ({ children }) => {
         <UserProvider>
           <ThemeProvider>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              {children}
+              <SnackbarProvider maxSnack={3}>{children}</SnackbarProvider>
             </LocalizationProvider>
           </ThemeProvider>
         </UserProvider>

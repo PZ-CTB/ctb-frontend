@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import TextInput from 'components/form/textInput';
+import { useSnackbars } from 'components/snackbar';
 import Routes from 'routes';
 
 import { postLogin } from '../api';
@@ -34,13 +35,17 @@ const LoginPage: React.FC = () => {
   };
 
   const { handleSubmit } = methods;
+  const { enqueueSnackbarError } = useSnackbars();
 
   const onSubmit = handleSubmit(async (data) => {
-    const response = await postLogin(data);
-
-    signIn({
-      token: response.auth_token,
-    });
+    try {
+      const response = await postLogin(data);
+      signIn({
+        token: response.auth_token,
+      });
+    } catch (e) {
+      enqueueSnackbarError('Login failed');
+    }
   });
 
   useEffect(() => {

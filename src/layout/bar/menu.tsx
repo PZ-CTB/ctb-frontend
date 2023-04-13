@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { useAuthSignOutAndRedirect } from 'auth/hooks';
+import { useSnackbars } from 'components/snackbar';
 import Routes from 'routes';
 
 type Props = {
@@ -13,9 +14,15 @@ type Props = {
 
 const LayoutMenu: React.FC<Props> = ({ anchorEl, setAnchorEl }) => {
   const signOutAndRedirect = useAuthSignOutAndRedirect();
+  const { enqueueSnackbarSuccess } = useSnackbars();
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    signOutAndRedirect();
+    enqueueSnackbarSuccess('Logged out successfully');
   };
 
   return (
@@ -23,11 +30,12 @@ const LayoutMenu: React.FC<Props> = ({ anchorEl, setAnchorEl }) => {
       anchorEl={anchorEl}
       open={Boolean(anchorEl)}
       onClose={handleClose}
+      onClick={handleClose}
     >
       <MenuItem component={Link} to={Routes.Profile()}>
         Profile
       </MenuItem>
-      <MenuItem onClick={signOutAndRedirect}>Logout</MenuItem>
+      <MenuItem onClick={handleLogout}>Logout</MenuItem>
     </StyledMenu>
   );
 };

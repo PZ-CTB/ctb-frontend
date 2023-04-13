@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 
 import TextInput from 'components/form/textInput';
+import { useSnackbars } from 'components/snackbar';
 import Routes from 'routes';
 
 import { postRegister } from '../api';
@@ -24,10 +25,17 @@ const RegisterPage: React.FC = () => {
     to: Routes.Login(),
   };
 
-  const { handleSubmit } = methods;
+  const { handleSubmit, reset } = methods;
+  const { enqueueSnackbarSuccess, enqueueSnackbarError } = useSnackbars();
 
   const onSubmit = handleSubmit(async (data) => {
-    await postRegister(data);
+    try {
+      await postRegister(data);
+      enqueueSnackbarSuccess('Registration successful');
+      reset();
+    } catch (e) {
+      enqueueSnackbarError('Registration failed');
+    }
   });
 
   return (
