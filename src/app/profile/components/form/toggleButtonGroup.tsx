@@ -14,7 +14,7 @@ type ButtonGroupProps = {
 const ButtonGroup: React.FC<ButtonGroupProps> = ({
   control,
   setValue,
-  ...textFieldProps
+  ...buttonGroupProps
 }) => {
   return (
     <Controller
@@ -32,7 +32,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({
             }
           }}
           exclusive
-          {...textFieldProps}
+          {...buttonGroupProps}
         >
           {(
             Object.keys(TransactionType) as (keyof typeof TransactionType)[]
