@@ -1,8 +1,7 @@
 import React from 'react';
 
+import Loading from 'components/ui/loading';
 import { createContext } from 'utils/context';
-
-import Loading from '../components/ui/loading';
 
 import { User } from './types';
 import { useUserSession } from './useUserSession';

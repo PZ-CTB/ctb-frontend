@@ -2,7 +2,7 @@ import { createBrowserRouter, Outlet } from 'react-router-dom';
 
 import AppPage from 'app/';
 import DashboardPage from 'app/dashboard';
-import ProfilePage from 'app/profile';
+import ProfilePage from 'app/profile/components';
 import StatisticsPage from 'app/statistics';
 import LoginPage from 'auth/login';
 import RegisterPage from 'auth/register';
