@@ -5,6 +5,14 @@ export enum TransactionType {
   WITHDRAW = 'withdraw',
 }
 
-export const getTransactionFormDefaultValues = (): TransactionForm => {
-  return { amount: 0, transactionType: TransactionType.DEPOSIT };
+export const TransactionTypes: Readonly<Record<TransactionType, string>> = {
+  [TransactionType.DEPOSIT]: 'Deposit',
+  [TransactionType.WITHDRAW]: 'Withdraw',
+};
+
+export const getTransactionFormDefaultValues = () => {
+  return {
+    amount: 0,
+    transactionType: TransactionType.DEPOSIT,
+  } satisfies TransactionForm;
 };

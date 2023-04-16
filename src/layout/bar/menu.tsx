@@ -17,6 +17,7 @@ const LayoutMenu: React.FC<Props> = ({ anchorEl, setAnchorEl }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   return (
     <StyledMenu
       anchorEl={anchorEl}

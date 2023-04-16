@@ -11,18 +11,14 @@ export const TransactionSchema = z.object({
 
 export type TransactionForm = z.infer<typeof TransactionSchema>;
 
-export const getTransactionFormSchema = (maxWithdrawAmount: number) => {
-  return TransactionSchema.refine(
-    (v) => {
-      return (
-        v.transactionType === TransactionType.DEPOSIT ||
-        (v.transactionType === TransactionType.WITHDRAW &&
-          v.amount <= maxWithdrawAmount)
-      );
-    },
+export const getTransactionFormSchema = (maxWithdrawAmount: number) =>
+  TransactionSchema.refine(
+    (values) =>
+      values.transactionType === TransactionType.DEPOSIT ||
+      (values.transactionType === TransactionType.WITHDRAW &&
+        values.amount <= maxWithdrawAmount),
     {
       message: 'You cannot withdraw more money than you have!',
       path: ['amount'],
     }
   );
-};

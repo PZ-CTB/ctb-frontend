@@ -8,13 +8,13 @@ import LayoutMenu from './menu';
 const LayoutToolbar: React.FC = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
-  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
   return (
     <StyledToolbar>
-      <StyledIconButton onClick={handleMenu} />
+      <StyledIconButton onClick={handleOpenMenu} />
       <LayoutMenu anchorEl={anchorEl} setAnchorEl={setAnchorEl} />
     </StyledToolbar>
   );

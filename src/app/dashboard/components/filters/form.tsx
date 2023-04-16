@@ -4,8 +4,8 @@ import React from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import styled from 'styled-components';
 
-import DateInput from 'components/dateInput';
 import Form from 'components/form';
+import DateInput from 'components/form/dateInput';
 
 import { FiltersForm, FiltersFormSchema } from './schema';
 import { getFilterFormDefaultValues, minDateBoundary, today } from './utils';

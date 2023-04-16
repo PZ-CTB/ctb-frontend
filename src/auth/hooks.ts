@@ -12,9 +12,9 @@ export const useAuthSignOutAndRedirect = () => {
   const { signOut } = useAuthContext();
 
   return () => {
-    signOut();
-
-    // redirect here to avoid auto-redirect with location.from
-    navigate(Routes.Login());
+    signOut().then(() => {
+      // redirect here to avoid auto-redirect with location.from
+      navigate(Routes.Login());
+    });
   };
 };

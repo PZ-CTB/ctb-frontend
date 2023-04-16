@@ -8,7 +8,9 @@ import UserInfo from './info';
 
 const ProfilePage: React.FC = () => {
   const user = useUserSession();
+
   if (user.isLoading) return <Loading />;
+
   if (!user.data) return null;
 
   return (

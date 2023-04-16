@@ -1,16 +1,20 @@
 import { zodResolver } from '@hookform/resolvers/zod/dist/zod';
 import { Button } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import styled from 'styled-components';
 
 import Form from 'components/form';
 import NumberInput from 'components/form/numberInput';
+import ToggleButtonGroupInput from 'components/form/toggleButtonGroupInput';
 import { User } from 'user/types';
 
-import { TransactionForm, getTransactionFormSchema } from './schema';
-import ButtonGroup from './toggleButtonGroup';
-import { getTransactionFormDefaultValues, TransactionType } from './utils';
+import { getTransactionFormSchema, TransactionForm } from './schema';
+import {
+  getTransactionFormDefaultValues,
+  TransactionType,
+  TransactionTypes,
+} from './utils';
 
 type Props = {
   user: User;
@@ -22,10 +26,15 @@ const UserWalletForm: React.FC<Props> = ({ user }) => {
     resolver: zodResolver(getTransactionFormSchema(user.wallet_usd)),
   });
 
-  const { handleSubmit, control } = methods;
+  const { handleSubmit, control, clearErrors } = methods;
 
   const amount = useWatch({ control, name: 'amount' });
   const transactionType = useWatch({ control, name: 'transactionType' });
+
+  // clear errors on transactionType change
+  useEffect(() => {
+    clearErrors();
+  }, [transactionType]);
 
   const onSubmit = handleSubmit((data: TransactionForm) => {
     const sign = transactionType === TransactionType.DEPOSIT ? '+' : '-';
@@ -36,11 +45,12 @@ const UserWalletForm: React.FC<Props> = ({ user }) => {
 
   return (
     <StyledForm methods={methods} onSubmit={onSubmit}>
-      <ButtonGroup control={methods.control} setValue={methods.setValue} />
+      <ToggleButtonGroupInput
+        name="transactionType"
+        options={TransactionTypes}
+      />
       <NumberInput name="amount" label="Amount" />
-      <div>
-        <StyledButton disabled={disabledSubmitButton} />
-      </div>
+      <StyledButton disabled={disabledSubmitButton} />
     </StyledForm>
   );
 };
@@ -48,11 +58,9 @@ const UserWalletForm: React.FC<Props> = ({ user }) => {
 export default UserWalletForm;
 
 const StyledForm = styled(Form)`
+  max-width: 15rem;
   display: flex;
-  flex-flow: column wrap;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
   gap: 1.5rem;
 ` as typeof Form;
 
