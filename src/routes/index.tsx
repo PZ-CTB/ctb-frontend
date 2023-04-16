@@ -6,8 +6,9 @@ const Routes = {
     `/reset-password/${uid && token ? ':uid/:token' : ''}`,
 
   App: () => `/app`,
-  Statistics: () => `/app/statistics`,
-  Dashboard: () => `/app/dashboard`,
+  Statistics: () => `${Routes.App()}/statistics`,
+  Dashboard: () => `${Routes.App()}/dashboard`,
+  Profile: () => `${Routes.App()}/profile`,
 
   Sandbox: (user: string) => `/sandbox/${user}`,
 };

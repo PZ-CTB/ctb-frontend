@@ -14,7 +14,7 @@ import PersistentAuthTokenLoader from './loader';
 
 export type AuthContext = {
   signIn: (data: AuthData) => void;
-  signOut: () => void;
+  signOut: () => Promise<unknown>;
   data: AuthData | undefined;
 };
 
@@ -38,14 +38,14 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
     setData(data);
   };
 
-  const signOut = async () => {
-    await postLogout();
+  const signOut = () => {
+    return postLogout().finally(() => {
+      removePersistentAuthData();
 
-    removePersistentAuthData();
+      setData(undefined);
 
-    setData(undefined);
-
-    queryClient.clear(); // clear all query caches to avoid flash of other user's data
+      queryClient.clear(); // clear all query caches to avoid flash of other user's data
+    });
   };
 
   return (

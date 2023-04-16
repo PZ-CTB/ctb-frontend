@@ -14,9 +14,7 @@ export const useUserSession = () => {
     enabled: isAuthenticated, // disable fetch when not isAuthenticated (e.g., login page)
     retry: false, // do not retry if error (401)
     onError: () => {
-      if (isAuthenticated) {
-        signOutAndRedirect();
-      }
+      signOutAndRedirect();
     },
   });
 };
