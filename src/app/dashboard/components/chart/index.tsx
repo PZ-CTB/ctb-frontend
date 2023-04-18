@@ -1,4 +1,4 @@
-import { useTheme } from '@mui/material';
+import { Typography, useTheme } from '@mui/material';
 import React from 'react';
 import {
   CartesianGrid,
@@ -21,8 +21,6 @@ type Props = {
 
 const StockChart: React.FC<Props> = ({ data }) => {
   const theme = useTheme();
-  const isAggregate = data[0].low !== undefined && data[0].high !== undefined;
-  const lineType = 'linear';
 
   const lowestChartValue = Math.min(...data.map((d) => d.low ?? d.avg));
   const highestChartValue = Math.max(...data.map((d) => d.high ?? d.avg));
@@ -32,6 +30,11 @@ const StockChart: React.FC<Props> = ({ data }) => {
     high: highestChartValue,
     margin: 5,
   });
+
+  if (data.length === 0)
+    return <Typography>No data - please adjust your filters.</Typography>;
+
+  const isAggregate = data[0].low !== undefined && data[0].high !== undefined;
 
   return (
     <Container>
@@ -60,7 +63,7 @@ const StockChart: React.FC<Props> = ({ data }) => {
               />
 
               <Line
-                name="High value"
+                name="High price"
                 type={lineType}
                 dataKey="high"
                 stroke={theme.palette.primary.dark}
@@ -74,6 +77,8 @@ const StockChart: React.FC<Props> = ({ data }) => {
 };
 
 export default StockChart;
+
+const lineType = 'linear';
 
 const Container = styled.div`
   height: 32rem;

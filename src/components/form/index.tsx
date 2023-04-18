@@ -4,7 +4,7 @@ import { FormProps } from 'react-router-dom';
 
 type Props<T extends FieldValues> = FormProps & {
   methods: UseFormReturn<T>;
-  onSubmit: FormProps['onSubmit'];
+  onSubmit?: FormProps['onSubmit'];
   children: React.ReactNode;
 };
 

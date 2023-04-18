@@ -2,12 +2,22 @@ import { z } from 'zod';
 
 import { GenericDateConstraint } from 'utils/zod/utils';
 
-import { minDateBoundary, today } from './utils';
+import { maxAggregate, minAggregate, minDateBoundary, today } from './utils';
 
 export const FiltersFormSchema = z
   .object({
     startDate: GenericDateConstraint,
     endDate: GenericDateConstraint,
+    aggregate: z
+      .number()
+      .min(
+        minAggregate,
+        `Aggregate value cannot be smaller than ${minAggregate}`
+      )
+      .max(
+        maxAggregate,
+        `Aggregate value cannot be greater than ${maxAggregate}`
+      ),
   })
   .strict()
   .refine((v) => v.startDate.startOf('day') <= v.endDate.startOf('day'), {
