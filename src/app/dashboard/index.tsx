@@ -1,40 +1,33 @@
-import dayjs, { Dayjs } from 'dayjs';
+import { Typography } from '@mui/material';
 import React from 'react';
 import styled from 'styled-components';
 
+import Loading from 'components/ui/loading';
+
 import StockChart from './components/chart';
 import StockChartFiltersForm from './components/filters/form';
-import data from './sampleChartData';
-import { useFiltersQueryParams } from './utils';
+import { useStockChartData } from './rquery';
+import {
+  getFiltersURLSearchParamsFromQuery,
+  useFiltersQueryParams,
+} from './utils';
 
 const DashboardPage: React.FC = () => {
   const [query] = useFiltersQueryParams();
+  const { isLoading, error, data } = useStockChartData(
+    getFiltersURLSearchParamsFromQuery(query)
+  );
 
-  function getDataFromServer(
-    startDate: Dayjs,
-    endDate: Dayjs,
-    aggregate: number
-  ) {
-    console.log(aggregate);
-    return data.filter((record) => {
-      const recordDateAsDayjsDate = dayjs(record.date);
+  if (isLoading) return <Loading />;
 
-      return (
-        recordDateAsDayjsDate >= startDate && recordDateAsDayjsDate <= endDate
-      );
-    });
-  }
+  if (error) return <Typography>Error</Typography>;
+
+  if (!data) return <Typography>No data</Typography>;
 
   return (
     <Container>
       <StockChartFiltersForm />
-      <StockChart
-        data={getDataFromServer(
-          dayjs(query.date_from),
-          dayjs(query.date_to),
-          query.aggregate
-        )}
-      />
+      <StockChart data={data} />
     </Container>
   );
 };

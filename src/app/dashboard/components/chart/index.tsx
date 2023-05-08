@@ -12,6 +12,8 @@ import {
 } from 'recharts';
 import styled from 'styled-components';
 
+import { formatUSD } from 'utils/number';
+
 import { StockChartData } from './types';
 import { useChartParams } from './utils';
 
@@ -43,7 +45,7 @@ const StockChart: React.FC<Props> = ({ data }) => {
           <XAxis dataKey="date" angle={-90} textAnchor="end" interval={0} />
           <YAxis domain={yDomain} ticks={yTicks} interval={0} />
           <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-          <Tooltip />
+          <Tooltip formatter={formatUSD} />
           <Legend verticalAlign="top" align="right" />
 
           <Line

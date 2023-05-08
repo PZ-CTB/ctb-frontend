@@ -10,7 +10,7 @@ export const minAggregate = 1;
 
 export const getFilterFormDefaultValues = () => {
   return {
-    startDate: minDateBoundary,
+    startDate: today.subtract(1, 'month'),
     endDate: today,
     aggregate: minAggregate,
   } satisfies FiltersForm;
