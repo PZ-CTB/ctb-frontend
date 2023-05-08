@@ -7,7 +7,9 @@ import styled from 'styled-components';
 import Form from 'components/form';
 import NumberInput from 'components/form/numberInput';
 import ToggleButtonGroupInput from 'components/form/toggleButtonGroupInput';
-import { User } from 'user/types';
+import { useSnackbars } from 'components/snackbar';
+import { walletDepositService, walletWithdrawService } from 'wallet/service';
+import { ApiPostWalletData, WalletBalance } from 'wallet/types';
 
 import { getTransactionFormSchema, TransactionForm } from './schema';
 import {
@@ -17,16 +19,17 @@ import {
 } from './utils';
 
 type Props = {
-  user: User;
+  balance: WalletBalance;
 };
 
-const UserWalletForm: React.FC<Props> = ({ user }) => {
+const UserWalletForm: React.FC<Props> = ({ balance }) => {
   const methods = useForm<TransactionForm>({
     defaultValues: getTransactionFormDefaultValues(),
-    resolver: zodResolver(getTransactionFormSchema(user.wallet_usd)),
+    resolver: zodResolver(getTransactionFormSchema(balance.wallet_usd)),
   });
 
-  const { handleSubmit, control, clearErrors } = methods;
+  const { handleSubmit, control, clearErrors, reset } = methods;
+  const { enqueueSnackbarSuccess, enqueueSnackbarError } = useSnackbars();
 
   const amount = useWatch({ control, name: 'amount' });
   const transactionType = useWatch({ control, name: 'transactionType' });
@@ -37,8 +40,18 @@ const UserWalletForm: React.FC<Props> = ({ user }) => {
   }, [transactionType]);
 
   const onSubmit = handleSubmit((data: TransactionForm) => {
-    const sign = transactionType === TransactionType.DEPOSIT ? '+' : '-';
-    console.log(sign + data.amount + '$');
+    const transactionData = { amount: data.amount } satisfies ApiPostWalletData;
+
+    (transactionType === TransactionType.DEPOSIT
+      ? walletDepositService
+      : walletWithdrawService)(transactionData)
+      .then(() => {
+        enqueueSnackbarSuccess('Transaction successful');
+        reset();
+      })
+      .catch(() => {
+        enqueueSnackbarError('Transaction failed');
+      });
   });
 
   const disabledSubmitButton = amount <= 0;
