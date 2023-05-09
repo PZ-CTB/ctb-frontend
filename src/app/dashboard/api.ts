@@ -1,1 +1,1 @@
-export const API_PATH = '/stock';
+export const API_ROOT_PATH = '/stock';
