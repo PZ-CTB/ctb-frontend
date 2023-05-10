@@ -34,7 +34,7 @@ export const GenericDateConstraint = z
 
 export const GenericAmountConstraint = z
   .number({
-    invalid_type_error: ErrorMessages.required,
+    invalid_type_error: ErrorMessages.invalidInput,
     required_error: ErrorMessages.required,
   })
   .finite({ message: ErrorMessages.amount })
