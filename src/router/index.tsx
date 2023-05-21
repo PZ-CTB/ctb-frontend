@@ -1,13 +1,13 @@
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
-import AppPage from 'app/';
-import DashboardPage from 'app/dashboard';
-import ProfilePage from 'app/profile/components';
-import StatisticsPage from 'app/statistics';
-import LoginPage from 'auth/login';
-import RegisterPage from 'auth/register';
-import ResetPasswordPage from 'auth/resetPassword';
+import LoginPage from 'auth/pages/login';
+import RegisterPage from 'auth/pages/register';
+import ResetPasswordPage from 'auth/pages/resetPassword';
+import Layout from 'layout';
+import DashboardPage from 'pages/dashboard';
 import ErrorPage from 'pages/error';
+import ProfilePage from 'pages/profile';
+import StatisticsPage from 'pages/statistics';
 import Providers from 'providers';
 import Routes from 'routes';
 
@@ -18,31 +18,35 @@ export const BrowserRouter = createBrowserRouter([
     path: Routes.Home(),
     element: (
       <Providers>
-        <Outlet />
+        <Layout>
+          <Outlet />
+        </Layout>
       </Providers>
     ),
     children: [
       {
-        path: Routes.App(),
+        path: Routes.Dashboard(),
         element: (
           <ProtectedRoute>
-            <AppPage />
+            <DashboardPage />
           </ProtectedRoute>
         ),
-        children: [
-          {
-            path: Routes.Dashboard(),
-            element: <DashboardPage />,
-          },
-          {
-            path: Routes.Statistics(),
-            element: <StatisticsPage />,
-          },
-          {
-            path: Routes.Profile(),
-            element: <ProfilePage />,
-          },
-        ],
+      },
+      {
+        path: Routes.Statistics(),
+        element: (
+          <ProtectedRoute>
+            <StatisticsPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: Routes.Profile(),
+        element: (
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: Routes.Login(),
@@ -64,15 +68,9 @@ export const BrowserRouter = createBrowserRouter([
         path: `*`,
         element: (
           <ProtectedRoute>
-            <AppPage />
+            <ErrorPage />
           </ProtectedRoute>
         ),
-        children: [
-          {
-            path: `*`,
-            element: <ErrorPage />,
-          },
-        ],
       },
     ],
   },

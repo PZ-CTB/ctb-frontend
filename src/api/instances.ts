@@ -5,7 +5,7 @@ import { getAxiosAuthorizationHeader } from './headers';
 // default instance with auth
 
 export const axiosDefault = (function () {
-  const instance = createInstance();
+  const instance = axios.create();
 
   instance.interceptors.request.use((config) => {
     config.headers['Content-Type'] = 'application/json';
@@ -17,13 +17,3 @@ export const axiosDefault = (function () {
 })();
 
 export default axiosDefault;
-
-// instance without auth
-
-export const axiosWithoutAuth = createInstance();
-
-// creator with shared defaults
-
-function createInstance() {
-  return axios.create();
-}

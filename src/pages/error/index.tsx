@@ -9,11 +9,13 @@ import Routes from 'routes';
 
 const ErrorPage: React.FC = () => {
   return (
-    <Container>
-      <h1>Oops! You seem to be lost.</h1>
-      <Gif />
-      <DashboardButton />
-    </Container>
+    <>
+      <Container>
+        <h1>Oops! You seem to be lost.</h1>
+        <Gif />
+        <DashboardButton />
+      </Container>
+    </>
   );
 };
 

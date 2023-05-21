@@ -3,8 +3,8 @@ import React from 'react';
 import Loading from 'components/ui/loading';
 import { createContext } from 'utils/context';
 
+import { useUserSession } from './rquery';
 import { User } from './types';
-import { useUserSession } from './useUserSession';
 
 export type UserContext = {
   user: User | undefined;
