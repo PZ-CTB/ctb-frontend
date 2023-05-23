@@ -1,5 +1,4 @@
-import { get, post } from 'api';
-import { User } from 'user/types';
+import { post } from 'api';
 
 import { LoginForm, RegisterForm } from './schema';
 import { LoginResponse } from './types';
@@ -20,8 +19,3 @@ export const postRegister = (data: RegisterForm) =>
 
 export const postLogout = () =>
   post(API_ROOT_PATH + '/logout').then((response) => response.data);
-
-export const USER_SESSION_API_PATH = API_ROOT_PATH + '/me';
-
-export const getUserSession = () =>
-  get<User>(USER_SESSION_API_PATH).then((response) => response.data);

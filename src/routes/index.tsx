@@ -5,12 +5,9 @@ const Routes = {
   ResetPassword: (uid?: string, token?: string) =>
     `/reset-password/${uid && token ? ':uid/:token' : ''}`,
 
-  App: () => `/app`,
-  Statistics: () => `${Routes.App()}/statistics`,
-  Dashboard: () => `${Routes.App()}/dashboard`,
-  Profile: () => `${Routes.App()}/profile`,
-
-  Sandbox: (user: string) => `/sandbox/${user}`,
+  Statistics: () => `/statistics`,
+  Dashboard: () => `/dashboard`,
+  Profile: () => `/profile`,
 };
 
 export default Routes;
