@@ -1,29 +1,30 @@
-## Setup
+# Crypto Trading Bot – Frontend
 
-In the project directory run:
+Project for _Team Programming_ course at AGH University of Science and Technology.
 
-### `npm install`
+The goal is to create a bot with a web interface that uses machine learning to predict future cryptocurrency prices.
 
-Installs all required modules.
+Please check [the wiki](https://github.com/PZ-CTB/ctb-frontend/wiki) for information on project structure and deployment.
 
-## Available Scripts
+Also check [the backend side](https://github.com/PZ-CTB/ctb-backend) of the project.
 
-In the project directory, you can run:
+## Authors
 
-### `npm start`
+- Team leader: [Adam Łaba](https://github.com/unlvy)
+- Backend:
+  - Backend leader (model): [Paweł Bielecki](https://github.com/pawel2000pl)
+  - Backend leader (server): [Aleksander Kluczka](https://github.com/vis4rd)
+  - [Piotr Deda](https://github.com/PiotrDeda)
+  - [Kacper Osuch](https://github.com/uNBEx)
+  - [Mikołaj Sondej](https://github.com/mik-sondej)
+  - [Rafał Walkowiak](https://github.com/rafalw99)
+- Frontend:
+  - Frontend leader: [Krystian Śledź](https://github.com/krystiansledz)
+  - [Mirosław Kołodziej](https://github.com/mirek0707)
+  - [Jakub Kraśniak](https://github.com/sakor88)
+  - [Wiktor Urban](<https://gi[LICENSE.md](..%2F..%2FDownloads%2FLICENSE.md)thub.com/BlabberMobsterYeast>)
+- Robotic pet: [CTB Deployer](https://github.com/CTB-Deployer)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## License
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project is licensed under WTFPL, a free and open-source license. For more information, please see [LICENSE.md](LICENSE.md).
