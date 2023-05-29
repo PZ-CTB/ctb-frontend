@@ -2,9 +2,9 @@ import React from 'react';
 
 import Loading from 'components/ui/loading';
 import { useUserSession } from 'user/rquery';
+import WalletTransactionForm from 'wallet/components/transaction/form';
 import { useWalletBalance } from 'wallet/rquery';
 
-import UserWalletForm from './components/form';
 import UserInfo from './components/info';
 
 const ProfilePage: React.FC = () => {
@@ -19,7 +19,7 @@ const ProfilePage: React.FC = () => {
     <>
       <h1>Profile</h1>
       <UserInfo user={user.data} balance={balance.data} />
-      <UserWalletForm balance={balance.data} />
+      <WalletTransactionForm balance={balance.data} />
     </>
   );
 };

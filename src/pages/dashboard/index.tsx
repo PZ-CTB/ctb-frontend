@@ -3,12 +3,14 @@ import styled from 'styled-components';
 
 import ChartWrapper from 'stock/components/chart';
 import StockChartFiltersForm from 'stock/components/filters/form';
+import WalletTradeForm from 'wallet/components/trade/form';
 
 const DashboardPage: React.FC = () => {
   return (
     <Container>
       <StockChartFiltersForm />
       <ChartWrapper />
+      <WalletTradeForm />
     </Container>
   );
 };

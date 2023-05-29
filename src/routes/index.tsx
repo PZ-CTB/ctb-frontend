@@ -5,7 +5,7 @@ const Routes = {
   ResetPassword: (uid?: string, token?: string) =>
     `/reset-password/${uid && token ? ':uid/:token' : ''}`,
 
-  Statistics: () => `/statistics`,
+  History: () => `/history`,
   Dashboard: () => `/dashboard`,
   Profile: () => `/profile`,
 };

@@ -1,15 +1,7 @@
 import { Dayjs } from 'dayjs';
 import { z } from 'zod';
 
-export const ErrorMessages: {
-  required: string;
-  email: string;
-  passwordLength: string;
-  passwordsNotMatching: string;
-  date: string;
-  amount: string;
-  invalidInput: string;
-} = {
+export const ErrorMessages = {
   required: 'This is required',
   email: 'Must be a valid email',
   passwordLength: 'Too short - min. 8 characters',

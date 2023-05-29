@@ -2,7 +2,7 @@ import { get } from 'api';
 import { useReactQuery } from 'rquery';
 
 import { API_ROOT_PATH } from './api';
-import { StockChartData } from './types';
+import { StockChartData, StockPriceData } from './types';
 
 const getStockChartDataApiPath = (params?: string) =>
   `${API_ROOT_PATH}/chart${params ? `?${params}` : ''}`;
@@ -14,3 +14,6 @@ export const useStockChartData = (params: string) =>
     undefined,
     [getStockChartDataApiPath()]
   );
+
+export const useStockPrice = () =>
+  useReactQuery<StockPriceData>(get, `${API_ROOT_PATH}/price`);

@@ -6,8 +6,8 @@ import ResetPasswordPage from 'auth/pages/resetPassword';
 import Layout from 'layout';
 import DashboardPage from 'pages/dashboard';
 import ErrorPage from 'pages/error';
+import WalletHistoryPage from 'pages/history';
 import ProfilePage from 'pages/profile';
-import StatisticsPage from 'pages/statistics';
 import Providers from 'providers';
 import Routes from 'routes';
 
@@ -33,10 +33,10 @@ export const BrowserRouter = createBrowserRouter([
         ),
       },
       {
-        path: Routes.Statistics(),
+        path: Routes.History(),
         element: (
           <ProtectedRoute>
-            <StatisticsPage />
+            <WalletHistoryPage />
           </ProtectedRoute>
         ),
       },
