@@ -4,3 +4,5 @@ export type StockChartData = {
   low?: number;
   high?: number;
 };
+
+export type StockPriceData = { price: number };

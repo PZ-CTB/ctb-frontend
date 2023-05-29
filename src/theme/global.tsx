@@ -19,6 +19,17 @@ const GlobalStyles: React.FC = () => {
           // avoid content shift when scrollbar appears
           overflowY: 'scroll',
         },
+
+        input: {
+          '::-webkit-outer-spin-button, ::-webkit-inner-spin-button': {
+            '-webkit-appearance': 'none',
+            margin: 0,
+          },
+
+          '&[type=number]': {
+            '-moz-appearance': 'textfield',
+          },
+        },
       }}
     />
   );

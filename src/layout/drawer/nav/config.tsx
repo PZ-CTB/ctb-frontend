@@ -12,8 +12,8 @@ export const LayoutDrawerNavConfig: Array<ListItemProps> = [
     icon: <DashboardIcon />,
   },
   {
-    name: 'Statistics',
-    path: Routes.Statistics(),
+    name: 'History',
+    path: Routes.History(),
     icon: <AnalyticsIcon />,
   },
 ];
